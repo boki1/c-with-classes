@@ -6,8 +6,8 @@
 #include <string.h>
 #include <assert.h>
 #include "String.h"
-#include "../Class/Class.h"
-#include "../Class/new.h"
+#include "../../Class/Class.h"
+#include "../../Class/new.h"
 
 struct String {
 	const void *class;

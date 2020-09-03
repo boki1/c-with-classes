@@ -1,0 +1,5 @@
+- Some form of `free()` automation
+- Some form of better exception handling
+- For now there appear both `Integer` and `int` during method calling;
+    make sure to have only one of them
+- Makefile!

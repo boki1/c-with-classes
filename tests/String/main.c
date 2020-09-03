@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "String/String.h"
-#include "Class/new.h"
+#include "String.h"
+#include "../../Class/new.h"
 
 int main ()
 {

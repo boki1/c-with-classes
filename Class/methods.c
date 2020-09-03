@@ -7,24 +7,6 @@
 
 #include "Class.h"
 
-/* Works only with pointers a.k.a. p has to be allocated on the heap w/ malloc */
-#define RETURN_AS_METHOD(p, t) \
-  if (t == Pointer) { /* the approach used otherwise won't work with pointers */ }                             \
-  else { void *pp = malloc(sizeof(p)); \
-	memcpy(pp, &p, sizeof(p));    \
-	struct return_type _ret = { .retval = pp, .class_type = t }; \
-	return _ret;                                                \
-  }
-
-/* Extract the actual retval from the return_type struct */
-#define TRANSLATE_RET(p) \
-    (typeof((v)->class_type))    (v->value)
-
-struct return_type {
-	void *retval;
-	void *class_type;
-};
-
 typedef struct return_type *(*func_dt) ();
 
 struct Method {
@@ -79,4 +61,23 @@ destroy_methods (const void *obj)
 	  free (p);
 	}
   free (_class->methods);
+}
+
+METHOD_RETURN_TYPE
+method_return(void *v, const void *t, size_t s) {
+  void *p;
+  if (is_type(t, Pointer)) {
+	p = v;
+  } else {
+	p = malloc(s);
+	assert(p);
+	memcpy(p, v, s);
+  }
+
+  METHOD_RETURN_TYPE ret = {
+	  .class_type = (void *) t,
+	  .retval = p,
+  };
+
+  return ret;
 }

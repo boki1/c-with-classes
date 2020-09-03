@@ -8,6 +8,4 @@
 struct Method;
 typedef struct Method **class_methods;
 
-
-
 #endif //_METHOD_INTERNAL_H_
