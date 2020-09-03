@@ -21,7 +21,8 @@ struct Class {
 	const char *(*repr) ();
 	void (*invoke) ();
 
-	class_method methods;
+	class_methods methods;
+	unsigned methods_count;
 
 	void *result;
 };

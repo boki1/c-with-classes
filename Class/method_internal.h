@@ -6,7 +6,7 @@
 #define _METHOD_INTERNAL_H_
 
 struct Method;
-typedef struct Method *class_method;
+typedef struct Method **class_methods;
 
 
 

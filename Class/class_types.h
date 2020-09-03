@@ -25,6 +25,7 @@ const long double LongDoubleClass = 0;
 const void *LongDouble = &LongDoubleClass;
 
 const void *Void = 0;
+const void *Pointer = 0;
 
 
 
